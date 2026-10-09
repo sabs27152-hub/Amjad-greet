@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#100b20">
+<title>Greet — اصنع تهنئتك</title>
+<style>
+:root{--bg:#0e0a19;--panel:#191329;--panel2:#211936;--gold:#e9c77a;--muted:#b7abc9;--white:#fff9f0;--line:#3c2e54}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#2a1740 0%,var(--bg) 56%);color:var(--white);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;min-height:100vh}
+.wrap{max-width:760px;margin:auto;padding:22px 16px 48px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}.brand{font-weight:900;letter-spacing:1px;font-size:23px}.brand span{color:var(--gold)}.pill{border:1px solid var(--line);border-radius:99px;padding:7px 12px;color:var(--muted);font-size:12px}
+.hero{text-align:center;margin:18px 0 24px}.spark{color:var(--gold);font-size:25px}.hero h1{font-size:clamp(27px,7vw,43px);line-height:1.25;margin:10px 0}.hero p{color:var(--muted);line-height:1.8;margin:0 auto;max-width:450px;font-size:14px}
+.card{background:linear-gradient(145deg,rgba(32,24,51,.96),rgba(20,15,33,.98));border:1px solid var(--line);border-radius:22px;padding:20px;margin:16px 0;box-shadow:0 18px 45px #0003}
+.section-title{font-weight:800;font-size:17px;margin:0 0 15px;display:flex;align-items:center;gap:9px}.num{width:28px;height:28px;display:inline-grid;place-items:center;border-radius:9px;background:#3a294d;color:var(--gold);font-size:13px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{margin-bottom:14px}.field:last-child{margin-bottom:0}label{display:block;font-size:13px;color:#e7dff0;margin-bottom:7px}input,textarea,select{width:100%;background:#100c1c;border:1px solid #413354;border-radius:12px;padding:13px;color:var(--white);font:inherit;font-size:14px;outline:none}input:focus,textarea:focus,select:focus{border-color:var(--gold)}textarea{min-height:100px;resize:vertical;line-height:1.7}input[type=file]{padding:10px;font-size:12px}input[type=color]{height:46px;padding:5px}
+.occasion{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.occasion label{margin:0}.occasion input{position:absolute;opacity:0;pointer-events:none}.occasion span{display:flex;gap:8px;align-items:center;justify-content:center;padding:13px 8px;border:1px solid #413354;background:#100c1c;border-radius:13px;font-size:13px;cursor:pointer}.occasion input:checked+span{border-color:var(--gold);background:#332440;color:var(--gold)}
+.upload-note{color:var(--muted);font-size:12px;line-height:1.7;margin-top:7px}.btn{border:0;width:100%;padding:15px 18px;border-radius:14px;background:linear-gradient(110deg,#f0d28b,#c89d51);color:#21152c;font-weight:900;font-size:15px;cursor:pointer;box-shadow:0 8px 22px #d2ad6030}.btn.secondary{margin-top:10px;background:#211936;color:var(--white);border:1px solid var(--line);box-shadow:none}.preview{display:none;text-align:center;overflow:hidden;position:relative;background:radial-gradient(ellipse at top,#4c2c5c,#100a1b 70%);min-height:340px}.preview.show{display:block}.preview-inner{padding:34px 18px}.preview .ornament{color:var(--gold);font-size:24px}.preview h2{font-size:32px;line-height:1.3;margin:14px 0;color:var(--gold)}.preview p{white-space:pre-wrap;line-height:1.9}.preview img{max-width:100%;max-height:260px;object-fit:contain;border-radius:12px;margin-top:12px}.share-result{display:none;word-break:break-word;color:var(--gold);font-size:12px;line-height:1.8;margin-top:12px}.share-result.show{display:block}.footer{text-align:center;color:#897c9d;font-size:11px;margin-top:28px}
+@media(max-width:420px){.wrap{padding:17px 12px 34px}.card{padding:16px}.grid{grid-template-columns:1fr}.hero{margin-top:10px}.occasion{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><div class="brand">greet<span>.</span></div><div class="pill">اصنع لحظة لا تُنسى ✦</div></header>
+  <section class="hero"><div class="spark">✦ ✧ ✦</div><h1>كل شعور يستحق<br><span style="color:var(--gold)">تهنئة استثنائية</span></h1><p>اكتب رسالتك، اختر الصور والموسيقى، واصنع صفحة صغيرة تحمل ذكرى كبيرة.</p></section>
+  <form id="greetForm">
+    <section class="card">
+      <h2 class="section-title"><span class="num">١</span> اختر المناسبة</h2>
+      <div class="occasion">
+        <label><input type="radio" name="occasion" value="عيد ميلاد" checked><span>🎂 عيد ميلاد</span></label>
+        <label><input type="radio" name="occasion" value="عيد الحب"><span>💗 عيد الحب</span></label>
+        <label><input type="radio" name="occasion" value="ذكرى خاصة"><span>✨ ذكرى خاصة</span></label>
+        <label><input type="radio" name="occasion" value="تهنئة عامة"><span>💌 تهنئة عامة</span></label>
+      </div>
+    </section>
+    <section class="card">
+      <h2 class="section-title"><span class="num">٢</span> خلّيها شخصية</h2>
+      <div class="grid">
+        <div class="field"><label for="recipient">اسم الشخص المستلم</label><input id="recipient" maxlength="60" placeholder="إلى الشخص المميز..." required></div>
+        <div class="field"><label for="sender">اسمك أو توقيعك</label><input id="sender" maxlength="60" placeholder="من: ..."></div>
+      </div>
+      <div class="field"><label for="title">عنوان التهنئة</label><input id="title" maxlength="90" placeholder="كل عام وأنت أجمل حكاية"></div>
+      <div class="field"><label for="message">رسالتك</label><textarea id="message" maxlength="1200" placeholder="اكتب الكلام اللي بقلبك..." required></textarea></div>
+      <div class="grid">
+        <div class="field"><label for="accent">لون التهنئة</label><input type="color" id="accent" value="#e9c77a"></div>
+        <div class="field"><label for="photo">صورة أو ذكرى</label><input type="file" id="photo" accept="image/*"><div class="upload-note">تظهر الصورة في المعاينة على هذا الجهاز.</div></div>
+      </div>
+      <div class="field"><label for="music">موسيقى خلفية (اختياري)</label><input type="file" id="music" accept="audio/*"><div class="upload-note">استخدم ملفاً تملك حق استخدامه. تشغيل الصوت يحتاج عادةً إلى ضغطة من المستلم.</div></div>
+    </section>
+    <button class="btn" type="submit">✦ أنشئ معاينة التهنئة</button>
+  </form>
+  <section class="card preview" id="preview"><div class="preview-inner"><div class="ornament">✦ ─ ✧ ─ ✦</div><div id="prevOcc" style="color:#d8c8e8;margin-top:16px"></div><h2 id="prevTitle"></h2><div id="prevTo"></div><img id="prevPhoto" alt="صورة التهنئة" style="display:none"><p id="prevMessage"></p><div id="prevFrom" style="color:#d9c7e9;margin-top:22px"></div><div class="ornament" style="margin-top:24px">✧</div></div></section>
+  <button class="btn secondary" id="shareBtn" type="button" style="display:none">نسخ رابط معاينة النص</button>
+  <div class="share-result" id="shareResult"></div>
+  <div class="footer">GREET · صُمّم بحب ♡<br>هذه نسخة أولية؛ الحفظ الدائم والروابط الخاصة ستُضاف بعد ربط قاعدة البيانات والتخزين.</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+let photoData="";
+$("photo").addEventListener("change",e=>{const f=e.target.files[0];if(!f){photoData="";return}if(f.size>2*1024*1024){alert("اختَر صورة أصغر من 2 ميغابايت للمعاينة.");e.target.value="";return}const r=new FileReader();r.onload=()=>photoData=r.result;r.readAsDataURL(f)});
+$("greetForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const occ=document.querySelector('input[name="occasion"]:checked').value;
+ const accent=$("accent").value;
+ document.documentElement.style.setProperty("--gold",accent);
+ $("prevOcc").textContent=occ;
+ $("prevTitle").textContent=$("title").value.trim()||occ;
+ $("prevTitle").style.color=accent;
+ $("prevTo").textContent="إلى "+$("recipient").value.trim()+" ♡";
+ $("prevMessage").textContent=$("message").value.trim();
+ $("prevFrom").textContent=$("sender").value.trim()?"بكل المحبة، "+$("sender").value.trim():"";
+ $("prevPhoto").style.display=photoData?"block":"none";
+ if(photoData)$("prevPhoto").src=photoData;
+ $("preview").classList.add("show");$("shareBtn").style.display="block";
+ $("preview").scrollIntoView({behavior:"smooth",block:"start"});
+});
+$("shareBtn").addEventListener("click",async()=>{
+ const data={occasion:document.querySelector('input[name="occasion"]:checked').value,recipient:$("recipient").value,sender:$("sender").value,title:$("title").value,message:$("message").value,accent:$("accent").value};
+ const url=new URL(location.href);url.searchParams.set("g",btoa(unescape(encodeURIComponent(JSON.stringify(data)))));
+ const out=$("shareResult");out.textContent=url.href;out.classList.add("show");
+ try{await navigator.clipboard.writeText(url.href);out.textContent="تم نسخ رابط معاينة النص (لا يشمل الصورة أو الموسيقى): "+url.href}catch(e){out.textContent="انسخ الرابط التالي يدوياً (لا يشمل الصورة أو الموسيقى): "+url.href}
+});
+function loadShared(){
+ const raw=new URLSearchParams(location.search).get("g");if(!raw)return;
+ try{const d=JSON.parse(decodeURIComponent(escape(atob(raw))));$("recipient").value=d.recipient||"";$("sender").value=d.sender||"";$("title").value=d.title||"";$("message").value=d.message||"";$("accent").value=d.accent||"#e9c77a";document.querySelectorAll('input[name="occasion"]').forEach(x=>x.checked=x.value===d.occasion);$("greetForm").requestSubmit()}catch(e){}
+}
+loadShared();
+</script>
+</body>
+</html>
